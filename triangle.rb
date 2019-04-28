@@ -20,3 +20,13 @@ class Triangle
     :normal
   end
 end
+
+if $0 == __FILE__
+  sides = ARGV.join(" ").split(",").map(&:to_i)
+  puts case Triangle.what_kind_of(*sides)
+    when :normal then "不等辺三角形ですね！"
+    when :isosceles then "二等辺三角形ですね！"
+    when :equilateral then "正三角形ですね！"
+    when :not then "三角形じゃないです＞＜"
+  end
+end
